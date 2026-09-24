@@ -16,7 +16,7 @@ const Navbar = () => {
     },
     {
       name: "My Plan",
-      href: "/myplan",
+      href: "/my-plan",
     },
   ];
 

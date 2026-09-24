@@ -19,7 +19,7 @@ const Hero = () => {
             </h6>
 
             {/* Heading */}
-            <h1 className="text-3xl font-bold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+            <h1 className="text-xl font-bold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
               <span className="lg:whitespace-nowrap">
                 TRAIN WITH INTENT. LOG
               </span>
@@ -45,7 +45,7 @@ const Hero = () => {
           </div>
 
           {/* RIGHT IMAGE */}
-          <div className="w-full max-w-[420px] sm:max-w-[500px] md:max-w-[560px] lg:w-[48%] lg:max-w-[600px]">
+          <div className="w-full  lg:w-[48%] ">
             <Image
               src="/banner.png"
               alt="FitLog workout banner"

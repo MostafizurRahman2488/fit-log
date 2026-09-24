@@ -1,9 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import { FaClock, FaFire, FaStar } from "react-icons/fa";
+import Link from "next/link";
 
 const WorkoutCard = ({ work }) => {
     return (
+        <Link href={`/workouts/${work.id}`}>
         <article className="group overflow-hidden rounded-xl border border-[#25282d] bg-[#15171c] transition duration-300 hover:-translate-y-1 hover:border-[#b8ff00]/40 hover:shadow-lg">
 
             
@@ -77,6 +79,7 @@ const WorkoutCard = ({ work }) => {
                 </div>
             </div>
         </article>
+       </Link>
     );
 };
 

@@ -5,8 +5,8 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="min-h-[calc(100vh-68px)] bg-[#0d0f11]">
-      <div className="container mx-auto px-4 py-10 sm:px-6 sm:py-14 md:py-16 lg:px-8 lg:py-20 xl:px-10">
+    <section className="bg-[#0d0f11]">
+      <div className="container mx-auto px-4 py-8 sm:px-6 sm:py-10 md:py-12 lg:px-8 lg:py-14 xl:px-10">
 
         <div className="flex flex-col items-center gap-10 sm:gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
 

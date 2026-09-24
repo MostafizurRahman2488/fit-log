@@ -1,3 +1,4 @@
+
 import React from "react";
 import WorkoutCard from "./WorkoutCard";
 
@@ -22,41 +23,23 @@ const Library = async () => {
     const workouts = await getWorkouts();
 
     return (
-        <section className="bg-[#0d0f11] px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
-
-            <div className="mx-auto max-w-7xl">
+        <section className="bg-[#0d0f11]">
+            <div className="container mx-auto px-4 pb-10 pt-4 sm:px-6 sm:pb-12 sm:pt-6 lg:px-8 lg:pb-16 lg:pt-8 xl:px-10">
 
                 {/* Section Header */}
-                <div className="mb-7 flex flex-col gap-3 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
+                <div className="mb-6 sm:mb-7">
+                    <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                        THE LIBRARY
+                    </h2>
 
-                    <div>
-                        <p className="mb-2 text-[10px] font-bold tracking-[0.2em] text-[#b8ff00] sm:text-xs">
-                            EXPLORE
-                        </p>
-
-                        <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-                            Workout Library
-                        </h1>
-
-                        <p className="mt-1 text-xs text-[#85898f] sm:text-sm">
-                            Find the right workout and build your training routine.
-                        </p>
-                    </div>
-
-                    {/* Total */}
-                    <div className="flex items-center gap-2 text-xs text-[#85898f]">
-                        <span>Total workouts</span>
-
-                        <span className="flex h-7 min-w-7 items-center justify-center rounded-full bg-[#243b08] px-2 font-bold text-[#b8ff00]">
-                            {workouts.length}
-                        </span>
-                    </div>
-
+                    <p className="mt-1 text-xs text-[#85898f] sm:text-sm">
+                        Twelve lifts covering every major muscle group.
+                    </p>
                 </div>
 
                 {/* Workout Grid */}
                 {workouts.length > 0 ? (
-                    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                         {workouts.map((work) => (
                             <WorkoutCard
                                 key={work.id}
@@ -75,10 +58,10 @@ const Library = async () => {
                         </p>
                     </div>
                 )}
-
             </div>
         </section>
     );
 };
 
 export default Library;
+

@@ -6,8 +6,9 @@ const WorkoutCard = ({ work }) => {
     return (
         <article className="group overflow-hidden rounded-xl border border-[#25282d] bg-[#15171c] transition duration-300 hover:-translate-y-1 hover:border-[#b8ff00]/40 hover:shadow-lg">
 
+            
             {/* Image */}
-            <figure className="relative h-44 w-full overflow-hidden bg-[#101216]">
+            <figure className="relative h-48 w-full overflow-hidden bg-[#101216]">
                 <Image
                     src={work.image}
                     alt={work.name}
@@ -22,6 +23,8 @@ const WorkoutCard = ({ work }) => {
                     {work.rating}
                 </div>
             </figure>
+           
+
 
             {/* Content */}
             <div className="p-4 sm:p-5">

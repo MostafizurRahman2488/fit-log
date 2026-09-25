@@ -2,50 +2,55 @@
 
 import React from "react";
 import { Bookmark, Plus, Check } from "lucide-react";
+import { toast } from "react-toastify";
 import { useFitLog } from "@/context/FitLogContext";
 
 const WorkoutActions = ({ work }) => {
     const {
         plan,
-        setPlan,
         saved,
-        setSaved,
+        addToPlan,
+        saveWorkout,
     } = useFitLog();
 
-    const isInPlan = plan.some((item) => item.id === work.id);
-    const isSaved = saved.some((item) => item.id === work.id);
+    const isInPlan = plan.some(
+        (item) => item.id === work.id
+    );
+
+    const isSaved = saved.some(
+        (item) => item.id === work.id
+    );
 
     const handleAddToPlan = () => {
-        if (isInPlan) return;
+        if (isInPlan) {
+            toast.info("Already added to today's plan");
+            return;
+        }
 
-        setPlan((previousPlan) => [
-            ...previousPlan,
-            work,
-        ]);
+        addToPlan(work);
+
+        toast.success("Added to today's plan");
     };
 
     const handleSave = () => {
         if (isSaved) {
-            setSaved((previousSaved) =>
-                previousSaved.filter((item) => item.id !== work.id)
-            );
-
+            toast.info("Already saved for later");
             return;
         }
 
-        setSaved((previousSaved) => [
-            ...previousSaved,
-            work,
-        ]);
+        saveWorkout(work);
+
+        toast.success("Saved for later");
     };
 
     return (
         <div className="mt-8 flex w-full flex-col gap-3 pb-8 sm:flex-row">
+
+            {/* Add to today's plan */}
             <button
                 type="button"
                 onClick={handleAddToPlan}
-                disabled={isInPlan}
-                className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#b8ff00] px-5 py-3 text-xs font-bold text-black transition hover:bg-[#c9ff4d] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#b8ff00] px-5 py-3 text-xs font-bold text-black transition hover:bg-[#c9ff4d] sm:w-auto"
             >
                 {isInPlan ? (
                     <>
@@ -60,6 +65,7 @@ const WorkoutActions = ({ work }) => {
                 )}
             </button>
 
+            {/* Save for later */}
             <button
                 type="button"
                 onClick={handleSave}

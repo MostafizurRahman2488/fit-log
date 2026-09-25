@@ -7,6 +7,7 @@ const FitLogContext = createContext(null);
 export const FitLogProvider = ({ children }) => {
     const [plan, setPlan] = useState([]);
     const [saved, setSaved] = useState([]);
+    const [completed, setCompleted] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
 
     // ==========================================
@@ -20,8 +21,12 @@ export const FitLogProvider = ({ children }) => {
             const storedSaved =
                 JSON.parse(localStorage.getItem("fitlog-saved")) || [];
 
+            const storedCompleted =
+                JSON.parse(localStorage.getItem("fitlog-completed")) || [];
+
             setPlan(storedPlan);
             setSaved(storedSaved);
+            setCompleted(storedCompleted);
         } catch (error) {
             console.error("Failed to load FitLog data:", error);
         } finally {
@@ -30,7 +35,7 @@ export const FitLogProvider = ({ children }) => {
     }, []);
 
     // ==========================================
-    // Save plan to localStorage
+    // Save plan
     // ==========================================
     useEffect(() => {
         if (!isLoaded) return;
@@ -42,7 +47,7 @@ export const FitLogProvider = ({ children }) => {
     }, [plan, isLoaded]);
 
     // ==========================================
-    // Save saved workouts to localStorage
+    // Save saved workouts
     // ==========================================
     useEffect(() => {
         if (!isLoaded) return;
@@ -54,7 +59,19 @@ export const FitLogProvider = ({ children }) => {
     }, [saved, isLoaded]);
 
     // ==========================================
-    // Add workout to today's plan
+    // Save completed workouts
+    // ==========================================
+    useEffect(() => {
+        if (!isLoaded) return;
+
+        localStorage.setItem(
+            "fitlog-completed",
+            JSON.stringify(completed)
+        );
+    }, [completed, isLoaded]);
+
+    // ==========================================
+    // Add to plan
     // ==========================================
     const addToPlan = (workout) => {
         setPlan((previousPlan) => {
@@ -66,12 +83,17 @@ export const FitLogProvider = ({ children }) => {
                 return previousPlan;
             }
 
+            // Maximum 5 workouts
+            if (previousPlan.length >= 5) {
+                return previousPlan;
+            }
+
             return [...previousPlan, workout];
         });
     };
 
     // ==========================================
-    // Remove workout from today's plan
+    // Remove from plan
     // ==========================================
     const removeFromPlan = (id) => {
         setPlan((previousPlan) =>
@@ -105,11 +127,34 @@ export const FitLogProvider = ({ children }) => {
         );
     };
 
+    // ==========================================
+    // Mark workout as done
+    // ==========================================
+    const markAsDone = (workout) => {
+        setCompleted((previousCompleted) => {
+            const alreadyCompleted = previousCompleted.some(
+                (item) => item.id === workout.id
+            );
+
+            if (alreadyCompleted) {
+                return previousCompleted;
+            }
+
+            return [...previousCompleted, workout];
+        });
+
+        // Remove from today's plan
+        setPlan((previousPlan) =>
+            previousPlan.filter((item) => item.id !== workout.id)
+        );
+    };
+
     return (
         <FitLogContext.Provider
             value={{
                 plan,
                 saved,
+                completed,
                 isLoaded,
 
                 addToPlan,
@@ -117,6 +162,8 @@ export const FitLogProvider = ({ children }) => {
 
                 saveWorkout,
                 removeSavedWorkout,
+
+                markAsDone,
             }}
         >
             {children}

@@ -11,6 +11,7 @@ import {
     X,
 } from "lucide-react";
 import { useFitLog } from "@/context/FitLogContext";
+import { toast } from "react-toastify";
 
 const PlanWorkoutCard = ({
     workout,
@@ -25,13 +26,16 @@ const PlanWorkoutCard = ({
     const handleRemove = () => {
         if (activeTab === "today") {
             removeFromPlan(workout.id);
+            toast.success(`${workout.name} removed from your plan`);
         } else {
             removeSavedWorkout(workout.id);
+            toast.success(`${workout.name} removed from saved workouts`);
         }
     };
 
     const handleDone = () => {
         markAsDone(workout);
+        toast.success(`${workout.name} marked as done!`);
     };
 
     return (

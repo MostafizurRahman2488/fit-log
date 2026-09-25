@@ -1,4 +1,5 @@
 import WorkoutDetails from "@/components/workout/WorkoutDetails";
+import { notFound } from "next/navigation";
 
 const getWorkout = async (id) => {
     const res = await fetch(
@@ -11,9 +12,7 @@ const getWorkout = async (id) => {
     );
 
     if (!res.ok) {
-        throw new Error(
-            `Failed to fetch workout: ${res.status}`
-        );
+        notFound();
     }
 
     return res.json();

@@ -35,7 +35,7 @@ const Library = ({ initialWorkouts }) => {
     }, [initialWorkouts, sortBy]);
 
     return (
-        <section className="bg-[#0d0f11]">
+        <section id="library" className="bg-[#0d0f11]">
             <div className="container mx-auto px-4 pb-10 pt-4 sm:px-6 sm:pb-12 sm:pt-6 lg:px-8 lg:pb-16 lg:pt-8 xl:px-10">
 
                 {/* Section Header */}

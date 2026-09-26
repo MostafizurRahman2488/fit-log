@@ -1,46 +1,54 @@
-# FITLOG — Workout Library
+# 🏋️ FITLOG — Workout Library
 
-## 📌 Project Name
+FitLog is a modern and responsive workout library built with Next.js. It allows users to explore different exercises, view detailed workout information, create a personalized daily workout plan, save workouts for later, and track completed exercises.
 
-**FITLOG — Workout Library**
+The project focuses on providing a clean, user-friendly experience across mobile, tablet, and desktop devices.
 
-## 📝 Short Description
+## 🚀 Technologies Used
 
-FitLog is a modern and responsive workout library web application built with Next.js. Users can explore different workouts, view detailed workout information, and create their own personalized workout plan. The application provides a clean interface for tracking selected exercises and managing a daily workout routine.
-
-## 🛠️ Technologies Used
-
-* **Next.js**
-* **React.js**
-* **JavaScript**
-* **Tailwind CSS**
-* **Next.js Image Optimization**
-* **Lucide React Icons**
-* **REST API / Fetch API**
-* **React Context API**
+* **Next.js** — React framework for building the application
+* **React.js** — Component-based UI development
+* **JavaScript (ES6+)** — Application logic
+* **Tailwind CSS** — Responsive and modern styling
+* **React Context API** — Global workout plan and saved workout state management
+* **Lucide React** — Clean and modern icons
+* **REST API / Fetch API** — Fetching workout data
+* **Next.js Image** — Optimized image loading
 
 ## ✨ Key Features
 
 ### 1. 🏋️ Workout Library
 
-Users can browse a collection of workouts and explore different exercises from the workout library.
+Browse a collection of workouts with useful information such as duration, calories, difficulty, rating, equipment, and muscle groups.
 
-### 2. 🔍 Workout Details
+### 2. 🔍 Detailed Workout Information
 
-Each workout has a dedicated details page containing the workout image, title, description, specifications, and step-by-step instructions.
+View complete workout details including description, specifications, instructions, muscle groups, calories, duration, and rating.
 
-### 3. 📋 My Plan
+### 3. 📋 Personalized My Plan
 
-Users can add workouts to their personal **My Plan** and manage their selected exercises for the day.
+Add workouts to **Today's Plan**, remove them when needed, and manage a personalized workout routine with a maximum of five exercises.
 
-### 4. 📊 Live Workout Metrics
+### 4. 💾 Save & Track Workouts
 
-The My Plan page dynamically displays workout statistics such as **Exercises, Minutes, and Calories** based on the selected workouts.
+Save workouts for later and mark planned workouts as **Done** when completed. Toast notifications provide instant feedback for user actions.
 
-### 5. 📱 Responsive Design
+### 5. 📊 Smart Sorting & Responsive Design
 
-FitLog is designed to work smoothly across desktop, tablet, and mobile devices with a responsive and user-friendly interface.
+Sort workouts by **Duration, Calories, or Rating**, while enjoying a fully responsive interface that works smoothly on mobile, tablet, and desktop screens.
+
+## 📱 Responsive Design
+
+FitLog is designed to provide a consistent and user-friendly experience across:
+
+* 📱 Mobile devices
+* 📲 Tablets
+* 💻 Desktop screens
 
 ## 🎯 Project Goal
 
-The main goal of FitLog is to provide a simple and organized platform where users can discover workouts and build a personalized workout plan.
+The goal of FitLog is to make workout discovery and daily workout planning simple, organized, and enjoyable through a clean modern interface.
+
+---
+
+**© 2026 FitLog — Workout Library. Train hard, log honest.**

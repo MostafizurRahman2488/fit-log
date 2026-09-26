@@ -11,8 +11,9 @@ const WorkoutDetails = ({ work }) => {
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
 
                     {/* ================= LEFT SIDE ================= */}
-                    <div>
-                        <div className="relative h-[280px] w-full overflow-hidden rounded-xl sm:h-[400px] md:h-[500px] lg:sticky lg:top-24 lg:h-[650px]">
+                    {/* ================= LEFT SIDE ================= */}
+                    <div className="lg:sticky lg:top-24">
+                        <div className="relative h-[280px] w-full overflow-hidden rounded-xl sm:h-[400px] md:h-[500px] lg:h-[650px]">
                             <Image
                                 src={work.image}
                                 alt={work.name}
